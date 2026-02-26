@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aqua Agent</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Aqua Agent</h1>
+
+    <form id="diagnose-form" action="/api/diagnose" method="post" enctype="multipart/form-data">
+      <section class="section">
+        <h2>Upload Images</h2>
+        <label for="images">Upload Images (up to 3)</label>
+        <input
+          id="images"
+          name="images"
+          type="file"
+          accept="image/*"
+          multiple
+        />
+      </section>
+
+      <section class="section">
+        <h2>Pond Details</h2>
+        <label for="pond-size">Pond Size (acres)</label>
+        <input
+          id="pond-size"
+          name="pond_size"
+          type="number"
+          min="0"
+          step="0.1"
+          required
+        />
+
+        <label for="pond-depth">Pond Depth (feet)</label>
+        <input
+          id="pond-depth"
+          name="pond_depth"
+          type="number"
+          min="0"
+          step="0.1"
+          required
+        />
+      </section>
+
+      <button type="submit">Diagnose</button>
+    </form>
+
+    <section class="section" id="result-section">
+      <h2>Result</h2>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
